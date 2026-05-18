@@ -9,36 +9,39 @@
 <body>
 
 <header class="header" id="header">
-    <div class="nav-container">
-        <div class="logo"><a href="#home">Richard Liang</a></div>
+ <div class="nav-container">
+    <div class="logo"><a href="#home">Richard Liang</a></div>
 
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="#home">首页</a></li>
+        <li><a href="#about">关于</a></li>
+        <li><a href="#projects">作品</a></li>
+        <li><a href="#contact">联系</a></li>
+    </ul>
 
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#home">首页</a></li>
-            <li><a href="#about">关于</a></li>
-            <li><a href="#projects">作品</a></li>
-            <li><a href="#contact">联系</a></li>
-        </ul>
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
     </div>
+ </div>
 </header>
 
 <section id="home" class="hero">
     <h1>此地无银三百两.</h1>
-    <p>这里是Somebody's个人主页</p>
+    <p>这里是梁奥哲的个人主页</p>
     <button class="btn" onclick="scrollToSection('about')">了解更多</button>
 </section>
 
 <section id="about">
     <h2>关于我</h2>
-    <p> Introduction 01 。</p>
-    <p> Introduction 02 。</p>
-    <p> Introduction 03 。</p>
-    <p> Introduction 04 。</p>
+    <!-- <p>在读学生，对前沿工程和技术领域感兴趣。</p>
+    <p>未来希望能够出国发展，追求更加自由、稳定和高质量的生活。</p> -->
+    
+	
+	<!-- /*<p>曾参与 Canva 模板设计。</p>
+    <p>利用 Material Design 3 设计出一个类记账 App。</p>
+	*/ -->
 </section>
 
 <section id="projects">
@@ -46,15 +49,15 @@
 
     <a href="project1.html" class="card-link">
         <div class="card-base card-interactive">
-            <h3> Example 01 </h3>
-            <p>Discription</p>
+            <h3>Python问答系统</h3>
+            <p>一个基于命令行的智能问答系统，结合了简单的交互与趣味ASCII展示</p>
         </div>
     </a>
 
     <a href="#" class="card-link">
         <div class="card-base card-interactive">
-            <h3>Example 02</h3>
-            <p>Discription</p>
+            <h3>我的Personal Website</h3>
+            <p>基于Chat GPT 5.3 及 Gemini 3.1 Pro 模型，利用自然语言提问，Vibe Coding出的个人静态网站</p>
         </div>
     </a>
 
@@ -71,18 +74,27 @@
     
     <div class="card-base card-static">
         <h3>Email</h3>
-        <p><a href="mailto:[Email]" class="contact-link">[Email]</a></p>
+        
+		 <p><a href="mailto:rachel_vivien@outlook.com" class="contact-link">rachel_vivien@outlook.com</a></p> 
+		
+		<!-- <p style="text-align:center; font-size:18px;">
+    📧 <span onclick="copyEmail()" style="cursor:pointer; color:#4da3ff;">rachel_vivien@outlook.com
+    </span>
+</p> -->
+
+		
     </div>
 
     <div class="card-base card-static">
         <h3>其他平台</h3>
-        <p><a href="#" class="contact-link">GitHub 主页</a></p>
+        <!-- <p><a href="#" class="contact-link">GitHub 主页</a></p> -->
+		<p style="margin-bottom: 8px;"><a href="https://github.com/Bookshoper" target="_blank" class="contact-link">GitHub 主页</a></p>
         <p><a href="#" class="contact-link">LinkedIn 档案</a></p>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 Someone</p>
+    <p>© 2026 梁奥哲</p>
 </footer>
 
 <script src="script.js"></script>

@@ -68,6 +68,8 @@ body {
     display: flex;
     list-style: none;
     gap: 30px;
+    margin: 0;      /* 👈 新增：清除底部外边距，解决一高一低！ */
+    padding: 0;     /* 👈 新增：清除左侧内边距 */
     transition: 0.3s ease;
 }
 
@@ -99,6 +101,7 @@ body {
 }
 
 /* 移动端汉堡按钮（默认隐藏） */
+
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -296,7 +299,8 @@ footer {
         position: absolute;
         top: 100%;
         left: 0;
-        width: 100%;
+        right: 0;
+        width: auto;
         background-color: #fff9db; /* 保持浅黄底色统一 */
         flex-direction: column;
         align-items: center;
