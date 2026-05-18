@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python问答系统 | 梁奥哲</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="nav-container">
+        <div class="logo"><a href="index.html">Richard Liang</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">返回首页</a></li>
+        </ul>
+    </div>
+</header>
+
+<section style="margin-top: 60px;">
+    <h2>Python问答系统</h2>
+
+    <p>
+        这是一个基于Python开发的命令行问答系统，支持用户输入问题并返回预设答案，同时附带ASCII艺术输出。
+    </p>
+
+    <h3>功能特点</h3>
+    <ul>
+        <li>简单问答逻辑</li>
+        <li>命令行交互界面</li>
+        <li>趣味图形展示</li>
+    </ul>
+
+    <h3>技术栈</h3>
+    <ul>
+        <li>Python</li>
+        <li>基础字符串处理</li>
+    </ul>
+
+    <h3>示例代码</h3>
+    
+    <div class="code-window">
+        <div class="code-header">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+        </div>
+        <pre class="code-content">
+def answer(question):
+    # 定义问题和答案
+    questions = [
+        {
+            "question": "南京是一座怎样的城市？",
+            "answer": "南京是中国四大古都之一...",
+        },
+        # 其他问题省略...
+    ]
+
+# 主程序
+def main():
+    while True:
+        print("欢迎来到南京问答系统！请选择一个问题：")
+        for i, q in enumerate(questions):
+            print(f"{i + 1}. {q['question']}")
+        
+        choice = int(input("请输入问题编号：")) - 1
+        if 0 <= choice < len(questions):
+            selected = questions[choice]
+            print(f"\n{selected['answer']}\n")
+        else:
+            print("输入无效，请重新选择一个有效的编号。")
+            continue
+        
+        # 是否继续提问
+        continue_choice = input("是否想要查看其他问题？(y/n): ").strip().lower()
+        if continue_choice != 'y':
+            print("感谢使用南京问答系统，再见！")
+            break
+
+if __name__ == "__main__":
+    main()
+        </pre>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Someone</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

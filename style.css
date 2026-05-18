@@ -1,0 +1,330 @@
+/* ========================
+   🌈 全局主题颜色与变量
+   (想改风格只改这里)
+======================== */
+:root {
+    --bg-main: #eaf6ff;
+    --bg-secondary: #f0fff4;
+    --bg-accent: #fffbe6;
+    --text-main: #1a1a1a;
+    --text-secondary: #666;
+    --primary: #4da3ff;
+    --card-bg: #ffffff;
+    --radius: 16px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* ========================
+   📦 基础重置与排版
+======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* 原生平滑滚动 */
+}
+
+body {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+   /* line-height: 1.0; /* 增加全局行高，提升阅读体验 */
+}
+
+/* ========================
+   🌟 导航栏设计
+======================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff9db; 
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    transition: 0.3s ease;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* 桌面端：链接悬浮时的底部线条动画 */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+/* 仅在支持鼠标悬停的设备上启用 hover 特效 */
+@media (hover: hover) {
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+}
+
+/* 移动端汉堡按钮（默认隐藏） */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001; 
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-main);
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ========================
+   🏠 页面区块与组件
+======================== */
+/* 首页大图区域 */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, var(--bg-main), var(--bg-secondary), var(--bg-accent));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* 通用区块设置 */
+section {
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: var(--text-main);
+}
+
+section h3 {
+    margin: 25px 0 10px 0;
+    color: var(--text-main);
+}
+
+section p {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+/* 列表样式优化（针对作品详情页） */
+ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+/* 按钮 */
+.btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* ========================
+   📇 卡片系统 (核心重构)
+======================== */
+/* 基础卡片样式（通用） */
+.card-base {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: var(--shadow);
+}
+
+/* 动态卡片（用于“我的作品”，带互动效果） */
+.card-interactive {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+@media (hover: hover) {
+    /* 桌面端平滑悬停放大 */
+    .card-link:hover .card-interactive {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+}
+
+/* 移动端/全平台的点击按压反馈，消除生硬感 */
+.card-link:active .card-interactive {
+    transform: scale(0.98);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* 确保链接包裹整个卡片 */
+}
+
+/* 静态卡片（用于“联系方式”，无互动效果） */
+.card-static {
+    /* 继承基础卡片，不加 transition 和 transform */
+}
+
+/* 联系方式专属链接样式：正常字体，无底色，无下划线 */
+.contact-link {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+/* ========================
+   💻 高级代码块设计 (仿macOS)
+======================== */
+.code-window {
+    background: #1e1e1e; /* 深色背景 */
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    margin: 30px 0;
+    overflow: hidden;
+}
+
+/* 顶部状态栏 */
+.code-header {
+    background: #2d2d2d;
+    padding: 12px 15px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* 状态栏红黄绿小圆点 */
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+/* 代码内容区 */
+.code-content {
+    margin: 0;
+    padding: 20px;
+    color: #d4d4d4;
+    font-family: "Consolas", "Monaco", "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: auto; /* 移动端代码过长可横向滑动 */
+    -webkit-overflow-scrolling: touch; /* 提升 iOS 滑动流畅度 */
+}
+
+/* ========================
+   🦶 页脚
+======================== */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+/* ========================
+   📱 移动端自适应设计
+======================== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        /* 移动端菜单变为绝对定位，覆盖全屏宽度 */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff9db; /* 保持浅黄底色统一 */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        
+        /* 默认隐藏动画状态 */
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* 当 JS 加上 .active 类时展开 */
+    .nav-links.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* 汉堡菜单变成 "X" 的动画 */
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
