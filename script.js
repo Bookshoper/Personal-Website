@@ -49,4 +49,21 @@ if (mobileMenu && navLinks) {
     });
 }
 
-// 注：原先的 copyEmail 函数已移除，因为我们已将“找到我”改为了标准的 <a> 标签跳转（mailto 协议更规范）
+// ========================
+// 🌗 暗黑模式点击切换逻辑（全新修复版）
+// ========================
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", () => {
+            // 获取当前实际的主题状态，如果没有则默认为 light
+            const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+            const newTheme = currentTheme === "light" ? "dark" : "light";
+
+            // 切换全局属性并保存到本地，供跨页面读取
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+        });
+    }
+});

@@ -2,6 +2,12 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+	<script>
+        (function () {
+            const savedTheme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python问答系统 | 梁奥哲</title>
     <link rel="stylesheet" href="style.css"> 
@@ -26,11 +32,23 @@
 <body>
 
 <header class="header">
-    <div class="nav-container">
-        <div class="logo"><a href="index.html">Richard Liang</a></div>
-        <ul class="nav-links">
-            <li><a href="index.html">返回首页</a></li>
-        </ul>
+    <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+        
+        <div class="logo" style="display: flex; align-items: center; margin: 0; padding: 0;">
+            <a href="index.html" style="line-height: 1; display: block;">Richard Liang</a>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 18px;">
+            
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="切换主题" style="background: transparent; border: none; padding: 0; cursor: pointer; color: var(--text-main); display: flex; align-items: center; justify-content: center; height: 24px; order: -1 !important;">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 22px; height: 22px;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.22" x2="5.64" y2="17.78"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 22px; height: 22px;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            
+            <a href="index.html" style="color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 16px; line-height: 1; display: block; order: 0 !important;">返回首页</a>
+            
+        </div>
+        
     </div>
 </header>
 

@@ -1,8 +1,8 @@
 /* ========================
-   🌈 全局主题颜色与变量
-   (想改风格只改这里)
+   🌈 全局主题颜色与变量 (深浅双模式)
 ======================== */
 :root {
+    /* ☀️ 浅色模式默认变量 */
     --bg-main: #eaf6ff;
     --bg-secondary: #f0fff4;
     --bg-accent: #fffbe6;
@@ -10,9 +10,24 @@
     --text-secondary: #666;
     --primary: #4da3ff;
     --card-bg: #ffffff;
+    --header-bg: #fff9db;
     --radius: 16px;
     --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
+
+/* 🌙 暗黑模式变量 */
+[data-theme="dark"] {
+    --bg-main: #121214;       /* 深邃冷灰背景 */
+    --bg-secondary: #1a1a1e;  /* 稍亮的次要背景 */
+    --bg-accent: #161a1d;     /* 带有微弱蓝调的暗背景 */
+    --text-main: #f0f4f8;     /* 护眼白文字 */
+    --text-secondary: #9aa5b1;/* 暗色辅助文字 */
+    --primary: #66b3ff;       /* 提升在暗色下的对比度的蓝色 */
+    --card-bg: #1e1e24;       /* 高级感黑卡片 */
+    --header-bg: #1a1a1e;     /* 导航栏暗色 */
+    --shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
 
 /* ========================
    📦 基础重置与排版
@@ -31,7 +46,8 @@ body {
     font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg-main);
     color: var(--text-main);
-   /* line-height: 1.0; /* 增加全局行高，提升阅读体验 */
+    /* 💡 新增：让整个背景和文字在主题切换时拥有 0.3s 的丝滑渐变效果 */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* ========================
@@ -42,10 +58,20 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #fff9db; 
+    background-color: var(--header-bg); /* 💡 修改：改为变量，使其能联动变黑 */
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     z-index: 1000;
     transition: all 0.3s ease;
+}
+
+/* 别忘了让卡片也支持丝滑渐变 */
+.card-base {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: var(--shadow);
+    transition: background 0.3s ease, box-shadow 0.3s ease; /* 💡 新增 */
 }
 
 .nav-container {
@@ -301,7 +327,7 @@ footer {
         left: 0;
         right: 0;
         width: auto;
-        background-color: #fff9db; /* 保持浅黄底色统一 */
+        background-color: var(--header-bg) !important;
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
@@ -330,5 +356,77 @@ footer {
     }
     .menu-toggle.is-active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+/* ========================
+   🌗 暗黑模式切换按钮样式
+======================== */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle-btn svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* 默认状态下（浅色）：显示月亮，隐藏太阳 */
+.theme-toggle-btn .sun-icon { display: none; }
+.theme-toggle-btn .dark-icon { display: block; }
+
+/* 暗黑模式激活时：显示太阳，隐藏月亮 */
+[data-theme="dark"] .theme-toggle-btn .sun-icon { display: block; }
+[data-theme="dark"] .theme-toggle-btn .dark-icon { display: none; }
+
+
+/* ========================
+   ⚡ 响应式位置精调 (核心布局)
+======================== */
+/* 桌面端：按钮应该在导航项之后 */
+@media (min-width: 769px) {
+    .nav-links {
+        margin-right: 20px; /* 让链接和右边的按钮空开一点距离 */
+    }
+}
+
+/* 移动端：通过 Flexbox 的 order 属性强行重新排布顺序 */
+@media (max-width: 768px) {
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        margin-right: auto; /* 让logo紧贴左侧，把右侧推开 */
+    }
+    
+    /* 关键魔术：调整右侧按钮的视觉渲染顺序 */
+    .theme-toggle-btn {
+        order: 2;          /* 顺序第二（排在汉堡菜单左边） */
+        margin-right: 15px; /* 与右边三条杠保持间距 */
+    }
+    
+    .menu-toggle {
+        order: 3;          /* 顺序第三（排在最右边） */
     }
 }
