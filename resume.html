@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        })();
+    </script>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%232563eb'/><text x='50' y='66' font-family='system-ui, -apple-system, sans-serif' font-size='42' font-weight='800' fill='white' text-anchor='middle'>RL</text></svg>">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 | 梁奥哲</title>
+    <link rel="stylesheet" href="style.css"> 
+
+    <style>
+       /* ===================================================
+           📱 移动端网页浏览时的样式微调（解决内容太挤、长网址撑爆）
+           =================================================== */
+        @media (max-width: 768px) {
+            .header .nav-links {
+                position: static !important;          
+                display: flex !important;             
+                flex-direction: row !important;       
+                opacity: 1 !important;                
+                visibility: visible !important;       
+                clip-path: none !important;           
+                background-color: transparent !important; 
+                box-shadow: none !important;          
+                padding: 0 !important;                
+                margin: 0 !important;                 
+            }
+
+            /* 核心修复：给简历页面的卡片在手机端增加点上下呼吸感，防止内容粘在一起 */
+            .card-base {
+                padding: 20px 15px !important;
+            }
+
+            .card-base p {
+                margin-bottom: 12px !important; /* 让联系方式每一行有明显的上下间距 */
+                word-wrap: break-word !important;   /* 允许长网址自动换行，不再撑爆容器 */
+                word-break: break-all !important;  /* 强制长字符在边界断开 */
+            }
+        }
+
+        /* ===================================================
+           ✨ 核心魔法：专属打印样式（仅在打印和导出PDF时生效）
+           =================================================== */
+        @media print {
+            /* 1. 强制浏览器去除自带的页眉页脚（时间、网址、标题） */
+            @page {
+                size: auto;
+                margin: 20mm 15mm 20mm 15mm; /* 设定优雅的打印纸张内边距 */
+            }
+
+            /* 2. 隐藏不需要打印的网页元素：导航栏、下载按钮、底部标语 */
+            .header, 
+            footer, 
+            .no-print,
+            .theme-toggle-btn {
+                display: none !important;
+            }
+
+            /* 3. 修正主体间距，防止顶部留白过多 */
+            section {
+                margin-top: 0 !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            /* 4. 彻底扒掉矩形边框和背景，变成传统的纯文本精美简历排版 */
+            .card-base {
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin-bottom: 25px !important; /* 块与块之间保留干净的间距 */
+                page-break-inside: avoid; /* 防止单块内容被硬生生截断到两页 */
+            }
+
+            /* 5. 确保文字在白纸上是纯黑色，提升打印清晰度 */
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            h2 {
+                font-size: 26px;
+                margin-bottom: 20px;
+                text-align: center; /* 打印时让“个人简历”大标题居中，更好看 */
+                border-bottom: 2px solid #333; /* 加上一条精美的分割线 */
+                padding-bottom: 8px;
+            }
+
+            h3 {
+                font-size: 18px;
+                color: #000000 !important;
+                border-left: 4px solid #333; /* 打印时小标题左侧加粗竖线引导阅读 */
+                padding-left: 8px;
+                margin-bottom: 12px;
+            }
+            
+            p, li {
+                color: #222222 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+        
+        <div class="logo" style="display: flex; align-items: center; margin: 0; padding: 0;">
+            <a href="index.html" style="line-height: 1; display: block;">Richard Liang</a>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 18px;">
+            
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="切换主题" style="background: transparent; border: none; padding: 0; cursor: pointer; color: var(--text-main); display: flex; align-items: center; justify-content: center; height: 24px; order: -1 !important;">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 22px; height: 22px;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.22" x2="5.64" y2="17.78"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 22px; height: 22px;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            
+            <a href="index.html" style="color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 16px; line-height: 1; display: block; order: 0 !important;">返回首页</a>
+            
+        </div>
+        
+    </div>
+</header>
+
+<section style="margin-top:60px;">
+
+<h2>个人简历</h2>
+
+<div class="card-base">
+    <h3>基本信息</h3>
+    <p>姓名：梁奥哲</p>
+    <p>身份：高中学生</p>
+    <p>兴趣方向：工程技术、电气工程、人工智能</p>
+</div>
+
+<div class="card-base">
+    <h3>技能</h3>
+    <ul style="padding-left: 20px; margin: 5px 0;">
+        <li>Python</li>
+        <li>HTML / CSS</li>
+        <li>JavaScript</li>
+        <li>Linux</li>
+    </ul>
+</div>
+
+<div class="card-base">
+    <h3>项目经历</h3>
+    <p><strong>Python问答系统</strong></p>
+    <p>基于Python开发的命令行问答系统，支持预设问答与ASCII艺术展示。</p>
+    <br>
+    <p><strong>Personal Website</strong></p>
+    <p>使用HTML、CSS、JavaScript构建的响应式个人网站，支持深色模式与移动端适配。</p>
+</div>
+
+<div class="card-base">
+    <h3>联系方式</h3>
+    <p>Email：rachel_vivien@outlook.com</p>
+    <p>LinkedIn：https://www.linkedin.com/in/richardliang0518</p>
+    <p>GitHub：https://github.com/Bookshoper</p>
+</div>
+
+<div class="no-print" style="margin-top:30px; text-align:center;">
+    <button class="btn" onclick="window.print()" style="padding: 10px 24px; font-size: 16px; cursor: pointer;">
+        📄 下载 PDF / 打印
+    </button>
+</div>
+
+</section>
+
+<footer>
+    <p>© 2026 梁奥哲</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
