@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!-- 防闪烁同步脚本：继承首页的暗黑模式 -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        })();
+    </script>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%232563eb'/><text x='50' y='66' font-family='system-ui, -apple-system, sans-serif' font-size='42' font-weight='800' fill='white' text-anchor='middle'>RL</text></svg>">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Lakeside Cinematic Photo Style Skill | 梁奥哲</title>
+    <link rel="stylesheet" href="style.css"> 
+
+    <style>
+        @media (max-width: 768px) {
+            .header .nav-links {
+                position: static !important;
+                display: flex !important;
+                flex-direction: row !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                clip-path: none !important;
+                background-color: transparent !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+
+        .skill-meta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 12px 0 25px 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .skill-tag {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="nav-container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+        
+        <div class="logo" style="display: flex; align-items: center; margin: 0; padding: 0;">
+            <a href="index.html" style="line-height: 1; display: block;">Richard Liang</a>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 18px;">
+            
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="切换主题" style="background: transparent; border: none; padding: 0; cursor: pointer; color: var(--text-main); display: flex; align-items: center; justify-content: center; height: 24px; order: -1 !important;">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 22px; height: 22px;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.22" x2="5.64" y2="17.78"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 22px; height: 22px;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            
+            <a href="index.html" style="color: var(--text-main); text-decoration: none; font-weight: 500; font-size: 16px; line-height: 1; display: block; order: 0 !important;">返回首页</a>
+            
+        </div>
+        
+    </div>
+</header>
+
+<section style="margin-top: 85px; padding-top: 0;">
+    <h2 style="margin-top: 0;">Natural Lakeside Cinematic Photo Style Skill</h2>
+    
+    <div class="skill-meta">
+        <span class="skill-tag">Version: 1.0</span>
+        <span class="skill-tag">Author: Richard Liang</span>
+        <span class="skill-tag">Start Date: 2026.08.01</span>
+		<span class="skill-tag">Language: Natural language</span>
+		<span class="skill-tag">Status: Completed</span>
+    </div>
+
+    <p>
+        本 Skill 致力于将图片转换为具备<strong>自然湖畔、旅行摄影与慢生活氛围</strong>的真实电影感摄影作品。其核心并非虚构无中生有的场景，而是在保留原始真实性的前提下，强化自然光影、空间层次与真实摄影质感。
+    </p>
+
+    <h3> 核心美学理念 (Core Identity)</h3>
+    <p><strong>"Quiet Nature, Slow Living, Cinematic Reality"</strong></p>
+    <ul>
+        <li><strong>情绪关键词：</strong>安静、自然、温暖、松弛、旅行感、生活感、真实摄影</li>
+        <li><strong>适用场景：</strong>自然风景（湖泊、山林、草地）、户外生活（木质建筑、咖啡馆、露营区）及旅行纪实照片</li>
+    </ul>
+
+    <h3> Anti-AI 真实摄影法则 (Anti-AI Rules)</h3>
+    <ul>
+        <li><strong>拒绝过度完美：</strong>拒绝区域全清与色彩过艳，保留自然虚化、景深重点与真实瑕疵</li>
+        <li><strong>坚持留白空间：</strong>预留天空、水面与阴影等空旷区域，严禁填满画面</li>
+        <li><strong>视觉元素克制：</strong>遵循“1 个主要视觉故事 + 1 个辅助元素”法则，避免多主体竞争焦点</li>
+        <li><strong>真实相机质感：</strong>模拟手机/35mm胶片旅行摄影的自然曝光变化，严格禁止 CG 渲染感、游戏截图及商业广告味</li>
+    </ul>
+
+    <h3> 三层空间与色彩控制</h3>
+    <ul>
+        <li><strong>构图重塑：</strong>建立 <i>前景（树枝/栏杆） → 中景（主体/人造结构） → 远景（山体/水面/天空）</i> 的纵深关系</li>
+        <li><strong>色彩纯化：</strong>天空保持自然柔和蓝、水面呈现蓝绿层次反射、木质结构强化温润纹理，严禁荧光色与 HDR 效果</li>
+    </ul>
+
+    <h3> 完整 Skill 规则文档与评估代码 (System Specification)</h3>
+    
+    <div class="code-window">
+        <div class="code-header">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+        </div>
+        <pre class="code-content">
+# Natural Lakeside Cinematic Photo Style Skill
+Version: 1.0 | Author: Richard Liang | Date: 2026.07.02
+
+## 1. Core Style Identity
+"Quiet Nature, Slow Living, Cinematic Reality"
+Keywords: peaceful, relaxing, natural, quiet, slow life, authentic photography.
+
+## 2. Anti-AI Photography Rules
+- Avoid Artificial Perfection: Preserve defocus areas, organic flaws, and optical depth.
+- Preserve Empty Space: Maintain uncrowded areas (sky, water, shadows).
+- Limit Visual Elements: 1 Main Story + Max 1 Secondary Element.
+- Real Camera Feeling: Emulate 35mm travel film and natural mobile lens exposure.
+
+## 3. Image Analysis & Spatial Depth
+- Composition Target: Foreground -> Subject -> Background (3-Layer Depth).
+- Lighting: Maintain natural golden/morning/afternoon scattering light.
+- Texture: Enhance wood bark, timber grain, and water ripples with subtle film grain.
+
+## 4. Output Self-Check System (Quality Score Formula)
+Final Score = (Realism * 0.30) + (Color * 0.20) + (Atmosphere * 0.25) + (Composition * 0.10) + (Detail * 0.15)
+
+Pass Condition: Final Score >= 8.0
+If Final Score < 8.0: Automatically adjust parameters based on the lowest sub-score.
+        </pre>
+    </div>
+
+    <!-- GitHub 项目链接卡片 -->
+    <div class="card-base card-static" style="padding: 18px 25px; width: 100%; box-sizing: border-box; margin-top: 40px; margin-bottom: 20px;">
+        <a href="https://github.com/Bookshoper/Natural-Cinematic-Photo-Style-Skill" target="_blank" style="text-decoration: none; color: var(--text-main);">
+            <div style="display: flex; align-items: center; justify-content: flex-start; gap: 15px;">
+                <svg height="32" viewBox="0 0 16 16" width="32" fill="currentColor" style="color: var(--text-main); flex-shrink: 0;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                <div style="text-align: left; flex-grow: 1;">
+                    <h3 style="margin: 0; font-size: 16px;">GitHub 项目仓库</h3>
+                    <p style="margin: 0; font-size: 14px; color: var(--text-secondary);">查看 Skill 完整开源文档</p>
+                </div>
+                <svg height="20" viewBox="0 0 24 24" width="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-secondary); flex-shrink: 0;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+        </a>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 梁奥哲</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
